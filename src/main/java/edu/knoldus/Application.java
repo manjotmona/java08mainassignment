@@ -15,30 +15,39 @@ public class Application {
         //  try {
         TwitterOperations twitterOperations = new TwitterOperations();
         System.out.println("\n\n\n\n\n\n\n\n\n");
-        CompletableFuture<List<Status>> statusListInFuture = twitterOperations.getLatestPostFromTimeLine();
-        CompletableFuture<Void> statusResult = statusListInFuture.thenAccept(statusList -> statusList.forEach(status -> System.out
-                .println("@" + status.getText() + " " + status.getCreatedAt() + "\n")));
+        CompletableFuture<List<Status>> statusListInFuture =
+                twitterOperations.getLatestPostFromTimeLine();
+        CompletableFuture<Void> statusResult = statusListInFuture.thenAccept(
+                statusList -> statusList.forEach(status -> System.out
+                        .println("@" + status.getText() + " " + status.getCreatedAt() + "\n")));
 
         System.out.println("\n\n\n\n\n\n\n\n\n");
-        CompletableFuture<List<Status>> statusListInFutureOldest = twitterOperations.getOldestPostFromTimeline();
-        CompletableFuture<Void> statusResultOldest = statusListInFutureOldest.thenAccept(statusList -> statusList.forEach(status -> System.out
-                .println("@" + status.getText() + " " + status.getCreatedAt() + "\n")));
+        CompletableFuture<List<Status>> statusListInFutureOldest =
+                twitterOperations.getOldestPostFromTimeline();
+        CompletableFuture<Void> statusResultOldest = statusListInFutureOldest.thenAccept(
+                statusList -> statusList.forEach(status -> System.out
+                        .println("@" + status.getText() + " " + status.getCreatedAt() + "\n")));
 
         System.out.println("\n\n\n\n\n\n\n\n\n");
-        CompletableFuture<Long> longCompletableFuture = twitterOperations.gettweetsOnParticularDate();
+        CompletableFuture<Long> longCompletableFuture =
+                twitterOperations.gettweetsOnParticularDate();
         CompletableFuture<Void> dateResult = longCompletableFuture
                 .thenAccept(value -> System.out.println("\n\n\n\n\n perDay" + value));
 
         System.out.println("\n\n\n\n\n\n\n\n\n");
         CompletableFuture<List<Status>> averageRetweetCont = twitterOperations.getRetweetCount();
-        CompletableFuture<Void> reTweetResult = averageRetweetCont.thenAccept(value -> value.forEach(s -> System.out.println(
-                "@" + s.getText() + " \n*********RETWEETCOUNT*******\n" + s.getRetweetCount() + "\n")));
+        CompletableFuture<Void> reTweetResult = averageRetweetCont.thenAccept(value -> value
+                .forEach(s -> System.out.println(
+                        "@" + s.getText() + " \n*********RETWEETCOUNT*******\n" + s
+                                .getRetweetCount() + "\n")));
 
         System.out.println("\n\n\n\n\n\n\n\n\n");
-        CompletableFuture<List<Status>> averageFavouriteCont = twitterOperations.getFavouriteCount();
-        CompletableFuture<Void> reFavouriteResult = averageFavouriteCont.thenAccept(value -> value.forEach(s -> System.out.println(
-                "@" + s.getText() + "\n*********LIKES************* " + s.getFavoriteCount() + "\n")));
-
+        CompletableFuture<List<Status>> averageFavouriteCont =
+                twitterOperations.getFavouriteCount();
+        CompletableFuture<Void> reFavouriteResult = averageFavouriteCont.thenAccept(value -> value
+                .forEach(s -> System.out.println(
+                        "@" + s.getText() + "\n*********LIKES************* " + s.getFavoriteCount()
+                                + "\n")));
 
         try {
             Thread.sleep(1000000);

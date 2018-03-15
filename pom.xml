@@ -8,19 +8,41 @@
   <artifactId>java08-main-assignment</artifactId>
   <version>1.0-SNAPSHOT</version>
 
+
+
+  <properties>
+
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <linkXRef>false</linkXRef>
+
+  </properties>
   <dependencies>
+
     <dependency>
       <groupId>org.twitter4j</groupId>
       <artifactId>twitter4j-core</artifactId>
       <version>4.0.6</version>
     </dependency>
+
+    <!-- https://mvnrepository.com/artifact/junit/junit -->
+
+
+    <!--PMD-->
+    <dependency>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-pmd-plugin</artifactId>
+      <version>3.9.0</version>
+      <type>maven-plugin</type>
+    </dependency>
+    <!--PMD-->
+
   </dependencies>
 
 
   <build>
     <plugins>
-
       <plugin>
+        <version>3.7.0</version>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
 
@@ -31,6 +53,12 @@
       </plugin>
 
 
+
+
+
+
+
+      <!-- CheckStyle -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
@@ -54,6 +82,22 @@
           </execution>
         </executions>
       </plugin>
+      <!-- CheckStyle -->
+
+      <!-- FindBugs -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>findbugs-maven-plugin</artifactId>
+        <version>3.0.0</version>
+        <configuration>
+          <failOnError>false</failOnError>
+          <findbugsXmlOutput>true</findbugsXmlOutput>
+          <xmlOutput>true</xmlOutput>
+          <effort>Max</effort>
+        </configuration>
+      </plugin>
+      <!-- FindBugs -->
+
     </plugins>
   </build>
 

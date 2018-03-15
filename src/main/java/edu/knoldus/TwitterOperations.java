@@ -1,7 +1,6 @@
 package edu.knoldus;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
@@ -64,7 +63,6 @@ public class TwitterOperations {
 
         //System.out.println("\n\n\n\n\n\nInside Function:");
 
-
         return futureTwitter;
 
     }
@@ -75,7 +73,7 @@ public class TwitterOperations {
 
             SimpleDateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
             String time = "Wed Jan 31 21:00:00 IST 2018";
-          //  LocalDate newDate = LocalDate.of(2018,1,3);
+            //  LocalDate newDate = LocalDate.of(2018,1,3);
 
             List<Status> tweets1 = null;
             query.setCount(100);
